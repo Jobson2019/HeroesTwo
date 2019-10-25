@@ -23,13 +23,23 @@ namespace SuperHero.Controllers
         // GET: Hero
         public ActionResult Index()
         {
-            return View();
+            
+            return RedirectToAction("List");
         }
+
+        public ActionResult List()
+        {
+            List<Hero> heroes = context.Heroes.ToList();
+            return View(heroes);
+        }
+        
 
         // GET: Hero/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Hero hero = context.Heroes.Where(h => h.Id == id).FirstOrDefault();
+
+            return View(hero);
         }
 
         // GET: Hero/Create
@@ -64,33 +74,45 @@ namespace SuperHero.Controllers
 
         // POST: Hero/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Hero hero)
         {
             try
             {
-                // TODO: Add update logic here
+                var edithero = context.Heroes.Where(h => h.Id == id).FirstOrDefault();
+                edithero.firstName = hero.firstName;
+                edithero.lastName = hero.lastName;
+                edithero.primaryPower = hero.primaryPower;
+                edithero.secondaryPower = hero.secondaryPower;
+                edithero.catchphrase = hero.catchphrase;
+                context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(id);
             }
         }
 
         // GET: Hero/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Hero hero = context.Heroes.Where(h => h.Id == id).FirstOrDefault();
+
+            return View(hero);
         }
 
         // POST: Hero/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Hero hero)
         {
             try
             {
-                // TODO: Add delete logic here
+                hero = context.Heroes.Where(h => h.Id == id).FirstOrDefault();
+                context.Heroes.Remove(hero);
+                context.SaveChanges();
+
+
 
                 return RedirectToAction("Index");
             }

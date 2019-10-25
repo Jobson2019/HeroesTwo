@@ -12,6 +12,11 @@ namespace SuperHero.Models
         public int Id { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
+
+        public string primaryPower { get; set; }
+        public string secondaryPower { get; set; }
+
+        public string catchphrase { get; set; }
     }
 
 }
