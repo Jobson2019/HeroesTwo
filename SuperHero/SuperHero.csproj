@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201910251948388_SecondMigration.Designer.cs">
       <DependentUpon>201910251948388_SecondMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910252108129_migrationTHREE.cs" />
+    <Compile Include="Migrations\201910252108129_migrationTHREE.Designer.cs">
+      <DependentUpon>201910252108129_migrationTHREE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Hero.cs" />
@@ -276,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910251948388_SecondMigration.resx">
       <DependentUpon>201910251948388_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910252108129_migrationTHREE.resx">
+      <DependentUpon>201910252108129_migrationTHREE.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
